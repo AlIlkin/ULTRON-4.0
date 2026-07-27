@@ -97,6 +97,9 @@ while True:
     elif "word" in command and "open" in command:
         speak(act.open_word())
 
+    elif "search" in command:
+        speak(act.search_web(query))
+    
     else:
         # Fallback to NLP Intent Engine
         intent, target = understand(command)
