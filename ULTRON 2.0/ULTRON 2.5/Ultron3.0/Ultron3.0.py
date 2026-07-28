@@ -69,7 +69,7 @@ while True:
         break
 
     elif "shut down" in command:
-        speak("Shutting down the system. Farewell, Ali.")
+        speak("Shutting down the system. Farewell.")
         act.shutdown_system()
         break
 
