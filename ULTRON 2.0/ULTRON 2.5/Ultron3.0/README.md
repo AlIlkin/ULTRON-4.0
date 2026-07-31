@@ -1,4 +1,4 @@
-# ULTRON 2.5 / 3.0 — AI-Powered Desktop Voice Assistant
+# ULTRON 3.0 — AI-Powered Desktop Voice Assistant
 
 An advanced, modular desktop automation and voice assistant built in Python. Ultron combines speech recognition, text-to-speech synthesis, natural language understanding (`spaCy`), and system-level automation (`pyautogui`, `pyscreeze`) to give you hands-free control over your Windows environment.
 
