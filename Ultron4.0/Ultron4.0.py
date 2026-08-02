@@ -44,7 +44,9 @@ while True:
             "exit",
             "quit",
             "stop",
-            "no thanks"
+            "no, thanks",
+            "goodbye",
+            "bye"
         ]:
 
             speak("Goodbye.")
