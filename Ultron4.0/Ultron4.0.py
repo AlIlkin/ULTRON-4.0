@@ -1,3 +1,4 @@
+from datetime import datetime
 import os
 from asyncio import subprocess
 from time import time
@@ -38,9 +39,6 @@ while True:
 
             speak("Hello. How can I assist you?")
 
-        elif "thank you" in command or "thanks" in command:
-            speak("You're welcome. Do you need any further assistance?")
-
 
         elif command in [
             "exit",
@@ -56,6 +54,10 @@ while True:
         elif "who are you" in command:
 
             speak("I am ULTRON 4.0, your personal AI assistant.")
+
+        elif "thank you" in command or "thanks" in command:
+
+            speak("You're welcome. Do you need any further assistance?")
 
         elif "delete" in command:
             response = act.delete_words()
@@ -109,7 +111,11 @@ while True:
 
             speak(act.screenshot())
 
-
+        elif "what time is it" in command or "current time" in command:
+            now = datetime.now()
+            current_time = now.strftime("%H:%M")
+            print(f"The current time is {current_time}.")
+            speak(f"The current time is {current_time}.")
 
         # RAW KEYBOARD COMMANDS
 

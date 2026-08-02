@@ -1,7 +1,6 @@
 import os
 import threading
 import time
-
 import action_engine as act
 from voice_output import speak
 
@@ -20,18 +19,16 @@ def shutdown_after(minutes):
             if shutdown_cancel_event.is_set():
                 return
             
-            # Calculate remaining minutes and seconds
             remaining = total_seconds - elapsed
             mins, secs = divmod(remaining, 60)
             
-            # Print live updating timer to the console
             print(f"\rTime remaining before shutdown: {mins:02d}:{secs:02d}   ", end="", flush=True)
             
             time.sleep(1)
             elapsed += 1
             
         if not shutdown_cancel_event.is_set():
-            print("\n[TIMER] Time is up. Shutting down the system.")
+            print("\nTime is up. Shutting down the system.")
             speak("Time is up. Shutting down the system.")
             act.shutdown_system()
 
@@ -43,5 +40,5 @@ def shutdown_after(minutes):
 def cancel_shutdown():
     shutdown_cancel_event.set()
     os.system("shutdown /a")
-    print("\n[TIMER] Shutdown has been cancelled.")
+    print("\nShutdown has been cancelled.")
     speak("Shutdown has been cancelled.")

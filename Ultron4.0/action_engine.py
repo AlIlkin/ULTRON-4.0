@@ -20,6 +20,8 @@ APP_ALIASES = {
     "google chrome": ["chrome", "google chrome"],
     "firefox": ["firefox"],
     "microsoft edge": ["edge", "microsoft edge"],
+    "Clock": ["clock"],
+    "Zoom": ["zoom"]
 }
 
 # Per-OS application/executable names for each canonical key above
@@ -35,7 +37,8 @@ APP_NAMES_BY_OS = {
         "google chrome": "chrome",
         "firefox": "firefox",
         "microsoft edge": "msedge",
-        "Clock": "ms-clock:"
+        "Clock": "ms-clock:",
+        "Zoom": "zoom"
     },
     "Darwin": {
         "powerpoint": "Microsoft PowerPoint",
@@ -49,6 +52,7 @@ APP_NAMES_BY_OS = {
         "firefox": "Firefox",
         "microsoft edge": "Microsoft Edge",
         "Clock": "Clock",
+        "Zoom": "zoom.us"
     },
     "Linux": {
         "powerpoint": "libreoffice --impress",
@@ -62,6 +66,7 @@ APP_NAMES_BY_OS = {
         "firefox": "firefox",
         "microsoft edge": "microsoft-edge",
         "Clock": "gnome-clocks",
+        "Zoom": "zoom"
     },
 }
 
@@ -80,12 +85,32 @@ def get_executable_name(target):
 
     return target
 
+
+def resolve_windows_app_path(app_key, fallback_name):
+    """Return a concrete Windows executable path when a known app is installed."""
+    if app_key != "Zoom":
+        return fallback_name
+
+    candidates = [
+        r"C:\Program Files\Zoom\bin\Zoom.exe",
+        r"C:\Program Files (x86)\Zoom\bin\Zoom.exe",
+        os.path.expanduser(r"~\AppData\Roaming\Zoom\bin\Zoom.exe"),
+    ]
+
+    for candidate in candidates:
+        if os.path.exists(candidate):
+            return candidate
+
+    return fallback_name
+
+
 def open_anything(target):
     """Open any application by name, resolved for the current OS"""
     app_key = get_executable_name(target)
     resolved_name = APP_NAMES_BY_OS.get(OS_NAME, {}).get(app_key, target)
     try:
         if OS_NAME == "Windows":
+            resolved_name = resolve_windows_app_path(app_key, resolved_name)
             os.system(f'start "" "{resolved_name}"')
         elif OS_NAME == "Darwin":
             subprocess.run(["open", "-a", resolved_name], check=True)

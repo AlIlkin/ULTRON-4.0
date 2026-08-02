@@ -5,9 +5,6 @@ import tempfile
 import os
 
 
-# Load Whisper model
-# Options: tiny, base, small, medium, large-v3
-# small = good balance for assistants
 model = WhisperModel(
     "small",
     device="cpu",
