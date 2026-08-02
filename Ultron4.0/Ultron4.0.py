@@ -43,7 +43,8 @@ while True:
         elif command in [
             "exit",
             "quit",
-            "stop"
+            "stop",
+            "no thanks"
         ]:
 
             speak("Goodbye.")
