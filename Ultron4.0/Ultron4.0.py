@@ -38,6 +38,9 @@ while True:
 
             speak("Hello. How can I assist you?")
 
+        elif "thank you" in command or "thanks" in command:
+            speak("You're welcome. Do you need any further assistance?")
+
 
         elif command in [
             "exit",
