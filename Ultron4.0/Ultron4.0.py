@@ -172,6 +172,26 @@ while True:
             print("\nStarting Temperature Converter...")
             os.system("TempConvert.exe")
 
+        elif "play chess" in command:
+            
+            speak("Opening chess.com in your default web browser.")
+            os.system("start https://www.chess.com")
+
+        elif "instagram" in command:
+
+            speak("Opening Instagram in your default web browser.")
+            os.system("start https://www.instagram.com")
+
+        elif "facebook" in command:
+
+            speak("Opening Facebook in your default web browser.")
+            os.system("start https://www.facebook.com")
+
+        elif "snapchat" in command:
+            speak("Opening Snapchat in your default web browser.")
+            os.system("start https://www.snapchat.com")
+
+
 
         elif "open word" in command:
 
