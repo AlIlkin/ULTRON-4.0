@@ -177,6 +177,12 @@ while True:
             speak("Opening chess.com in your default web browser.")
             os.system("start https://www.chess.com")
 
+        
+        elif "youtube" in command:
+
+            speak("Opening YouTube in your default web browser.")
+            os.system("start https://www.youtube.com")
+
         elif "instagram" in command:
 
             speak("Opening Instagram in your default web browser.")
