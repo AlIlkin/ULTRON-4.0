@@ -107,6 +107,10 @@ while True:
             break
 
 
+        elif "notification" in command or "notifications" in command:
+            
+            speak("Opening the notification center.")
+            act.check_notification()
 
         # SCREENSHOT
 
