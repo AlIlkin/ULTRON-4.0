@@ -194,12 +194,12 @@ while True:
 
         elif "guessing game" in command or "number guess" in command or "play game" in command:
             speak("Launching the number guessing game.")
-            print("\nStarting Number Guessing Game...")
+            print(f"\n{ANSI_RED}Starting Number Guessing Game...{ANSI_RESET}")
             os.system("java Main")
 
         elif "convert temperature" in command or "temperature converter" in command:
             speak("Launching your Temperature Converter.")
-            print("\nStarting Temperature Converter...")
+            print(f"\n{ANSI_RED}Starting Temperature Converter...{ANSI_RESET}")
             os.system("TempConvert.exe")
 
 
