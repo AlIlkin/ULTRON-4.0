@@ -120,7 +120,7 @@ while True:
         elif "what time is it" in command or "current time" in command:
             now = datetime.now()
             current_time = now.strftime("%H:%M")
-            print(f"The current time is {current_time}.")
+            print(f"The current time is {ANSI_RED}{current_time}{ANSI_RESET}.")
             speak(f"The current time is {current_time}.")
 
         # RAW KEYBOARD COMMANDS
@@ -262,6 +262,6 @@ while True:
 
     except Exception as e:
 
-        print("ULTRON ERROR:",e)
+        print(f"{ANSI_RED}ULTRON ERROR:{ANSI_RESET}",e)
 
         speak("An error occurred while processing your request.")
