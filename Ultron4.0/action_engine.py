@@ -70,6 +70,16 @@ APP_NAMES_BY_OS = {
     },
 }
 
+def check_notification():
+    if OS_NAME == "Windows":
+        pyautogui.hotkey("win", "n") # Opening the notification center on Windows
+    elif OS_NAME == "Darwin":
+        pyautogui.hotkey("fn", "n") # Opening the notification center on macOS
+    elif OS_NAME == "Linux":
+        pyautogui.hotkey("super", "m") # Opening the notification center on Linux
+    else:
+        return f"Unsupported operating system: {OS_NAME}"
+
 def delete_words():
     key = "ctrl" if OS_NAME != "Darwin" else "option"
     pyautogui.hotkey(key, "backspace")
