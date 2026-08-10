@@ -62,6 +62,14 @@ while True:
 
             speak("I am ULTRON 4.0, your personal AI assistant.")
 
+        elif "who made you" in command or "who created you" in command:
+
+            speak("I was created by AI and a developer named Ali Gurbanov.")
+            print(f"{ANSI_RED}I was created by a developer named Ali Gurbanov.{ANSI_RESET}")
+            act.search_web("Ali Ilkinoglu")
+            speak("I have opened a search for Ali Ilkinoglu (Gurbanov), the developer who created me.")
+
+
         elif "thank you" in command or "thanks" in command:
 
             speak("You're welcome. Do you need any further assistance?")
