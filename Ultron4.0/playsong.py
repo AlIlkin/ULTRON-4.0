@@ -22,7 +22,6 @@ def play_song(command):
                 info = ydl.extract_info(search_keyword, download=False)
                 if 'entries' in info and len(info['entries']) > 0:
                     video_id = info['entries'][0]['id']
-                    # Construct the standard watch link that auto-plays
                     video_url = f"https://www.youtube.com/watch?v={video_id}"
                     webbrowser.open(video_url)
                     return True
