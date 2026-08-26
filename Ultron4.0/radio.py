@@ -11,11 +11,9 @@ def play_radio(speak_func, listen_func):
     if station_name:
         speak_func(f"Searching for {station_name} on Radio Garden.")
         
-        # Format the station name for Radio Garden's internal search URL route
         query = station_name.strip().replace(" ", "+")
         radio_search_url = f"https://radio.garden/search?q={query}"
         
-        # Open Radio Garden directly to the search results page
         webbrowser.open(radio_search_url)
     else:
         speak_func("I didn't catch the station name.")
